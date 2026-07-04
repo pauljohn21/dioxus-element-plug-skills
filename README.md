@@ -1,10 +1,10 @@
 # Dioxus Element Plug Skills
 
-这是一个专为 Dioxus Element Plug 项目设计的 CatPaw AI 技能配置文件项目。
+这是一个专为 Dioxus Element Plug 项目设计的 Skill 文件项目。
 
 ## 项目概述
 
-本项目包含 `SKILL.md` 配置文件，为 CatPaw AI 助手提供专业的 Dioxus Element Plug 项目技能支持，专注于：
+本项目包含 `SKILL.md` 配置文件，为 Dioxus Element Plug 项目设计的 Skill 文件项目，专注于：
 
 - 🚀 Modern Dioxus 0.7+ UI 开发
 - 🎨 Element UI 设计系统实现

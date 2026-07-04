@@ -1,10 +1,9 @@
 # Dioxus Element Plug Skill
 
-```yaml
 name: dioxus-element-plug
 version: 0.1.0
 description: Modern Dioxus UI components with Element UI theme-chalk styling and built-in SCSS support
-```
+
 
 ## Skill Metadata
 

@@ -1,142 +1,148 @@
-# Dioxus Element Plug
-
-This is a skill for Dioxus UI development with Element UI styling and zero-config SCSS support.
-
+---
 name: dioxus-element-plug
 version: 0.1.0
 description: Modern Dioxus UI components with Element UI theme-chalk styling and built-in SCSS support
-category: UI Development
-tags: dioxus, rust, ui-components, element-ui, scss, manganis
-framework: dioxus@0.7+
+category: Web Development
+framework: Dioxus 0.7+
+design_system: Element UI theme-chalk
+key_feature: Built-in SCSS compilation with manganis
+command: npx skills add dioxus-element-plug
+repository: https://github.com/pauljohn21/dioxus-element-plug-skills
+dependencies:
+  - dioxus@^0.7.0
+  - manganis@^0.7.9
+  - rust@^1.70.0
+tags:
+  - dioxus
+  - rust
+  - ui-components
+  - element-ui
+  - scss
+  - manganis
+  - modern-dx
+  - web-development
+---
+
+# Dioxus Element Plug Skill for CatPaw AI
+
+## Skill Overview
+
+This skill provides comprehensive assistance for Dioxus Element Plug development, a modern Rust web framework with Element UI components and zero-configuration SCSS support via manganis.
+
+## When to Use This Skill
+
+Use this skill when you need help with:
+- 🚀 Dioxus 0.7+ web application development
+- 🎨 Element UI component implementation and customization
+- ⚡ Zero-config SCSS compilation with manganis
+- 📦 Rust crates integration and package management
+- 🖥️ Modern developer experience (DX) optimization
+- 🐛 Troubleshooting Dioxus build and styling issues
+- 🔧 Performance optimization for production deployments
 
 ## Core Capabilities
 
-### 🚀 Modern DX Development
-- Dioxus 0.7+ development assistance
-- Element UI component library guidance
-- Manganis SCSS integration support
-- Rust Web UI development best practices
-- Modern Developer Experience (DX) optimization
-- crates.io publishing guidance
+### 1. Project Setup & Configuration
 
-### 🎨 UI Components
-- Button components with variant styling
-- Input components with multiple types
-- Layout system with responsive design
-- Theme integration and customization
-- CSS class utilities
-- Asset macro usage
+**Command**: `setup-project [project-name]`
+```rust
+// Example: Initialize new Dioxus project with Element Plug
+use dioxus::prelude::*;
+use dioxus_element_plug::prelude::*;
+use manganis::asset;
 
-### ⚡ Zero-Config SCSS
-- Built-in SCSS compilation via manganis
-- Hot reload support during development
-- Compile-time optimization
-- Type-safe asset handling
-- CSS minification for production
-
-## Quick Start Guide
-
-### Claude Code Integration
-
-#### Quick Commands
-```
-# Initialize new Dioxus project with Element UI
-new_dioxus_app("my-app", "element-ui")
-
-# Add Element UI components to existing project
-add_element_components("button", "input", "layout")
-
-# Configure SCSS compilation
-setup_scss_compilation("theme-chalk.scss")
-
-# Generate component with specific props
-generate_component("Button", "primary", "disabled=false")
+// Configure SCSS assets
+static THEME_STYLES: Asset = asset!("/assets/theme-chalk.scss");
+static CUSTOM_STYLES: Asset = asset!("/assets/custom.scss");
 ```
 
-#### Installation
-
+**Cargo.toml Dependencies**:
 ```toml
+[dependencies]
 dioxus = { version = "0.7", features = ["web"] }
 dioxus-element-plug = "0.1.0"
 manganis = { version = "0.7.9", features = ["dioxus"] }
 ```
 
-### Basic Usage
+### 2. UI Component Development
 
+**Command**: `create-component [component-type] [name]`
+
+**Available Components**:
+- Button: `variant`, `size`, `disabled`, `loading`, `icon`
+- Input: `type`, `placeholder`, `clearable`, `prefix-icon`, `suffix-icon`
+- Layout: Container, Header, Footer, Row, Col system
+
+**Component Usage Examples**:
 ```rust
-use dioxus::prelude::*;
-use dioxus_element_plug::prelude::*;
-use manganis::asset;
-
-// Zero-config SCSS compilation
-static STYLES: Asset = asset!("/assets/theme-chalk.scss");
-
-fn App() -> Element {
+/// Create a primary button
+fn create_primary_button() -> Element {
     rsx! {
         Button {
             variant: ButtonVariant::Primary,
-            "Hello Modern Dioxus!"
+            size: ButtonSize::Medium,
+            "Submit Form",
+        }
+    }
+}
+
+/// Create a search input
+fn create_search_input() -> Element {
+    rsx! {
+        Input {
+            input_type: InputType::Search,
+            placeholder: "Search...".to_string(),
+            clearable: true,
+        }
+    }
+}
+
+/// Create responsive layout
+fn create_page_layout() -> Element {
+    rsx! {
+        Container {
+            header {
+                Header {
+                    "Page Header"
+                }
+            }
+            main {
+                Row {
+                    Col { span: 12,
+                        "Main Content Area"
+                    }
+                }
+            }
+            footer {
+                Footer {
+                    "Page Footer"
+                }
+            }
         }
     }
 }
 ```
 
-## Project Structure
+### 3. SCSS & Theming
 
-```
-dioxus-element-plug/
-├── src/lib.rs              # Main library entry
-├── src/scss.rs             # SCSS utilities and macros
-├── src/theme.rs            # Theme constants
-├── src/components/         # UI components
-│   ├── button.rs           # Button component
-│   ├── input.rs            # Input component
-│   └── layout.rs           # Layout components
-├── scss/                   # SCSS source files
-│   ├── theme-chalk.scss    # Main theme file
-│   ├── components/         # Component styles
-│   └── variables/          # SCSS variables
-└── examples/               # Usage examples
-    └── with-scss-asset/    # Modern DX example
-```
+**Command**: `configure-theme [theme-name]`
 
-## API Reference
-
-### Key Components
-
-#### Button
-- **Variants**: Primary, Success, Warning, Danger, Info
-- **Sizes**: Large, Default, Small, Mini
-- **Properties**: disabled, loading, icon, circle, plain
-
-#### Input
-- **Types**: Text, Password, Search, Email, Url
-- **Properties**: placeholder, clearable, disabled, prefix-icon, suffix-icon
-- **Sizes**: Large, Default, Small
-
-#### Layout
-- **Container**: Main layout container
-- **Header/Footer**: Page sections
-- **Row/Col**: Grid system (24 columns)
-- **Breakpoints**: xs, sm, md, lg, xl
-
-### Asset Macros
-
+**SCSS Asset Management**:
 ```rust
-// Import SCSS files
-static STYLES: Asset = asset!("/assets/theme-chalk.scss");
+// Import main theme
+static THEME: Asset = asset!("/assets/theme-chalk.scss");
 
-// Import individual component styles
+// Import component-specific styles
 static BUTTON_STYLES: Asset = asset!("/assets/components/button.scss");
+static INPUT_STYLES: Asset = asset!("/assets/components/input.scss");
 
-// Import theme variables
-static THEME_VARS: Asset = asset!("/assets/variables/colors.scss");
+// Import custom styles
+static CUSTOM_THEME: Asset = asset!("/assets/custom-theme.scss");
 ```
 
-### Theme Variables
-
+**Theme Variables**:
 ```scss
-// Primary Colors
+// Primary color palette
 $primary-color: #409eff;
 $success-color: #67c23a;
 $warning-color: #e6a23c;
@@ -148,7 +154,12 @@ $font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Hiragino Sans 
 $font-size-base: 14px;
 $line-height-base: 1.5;
 
-// Spacing
+// Component sizes
+$button-height-small: 28px;
+$button-height-default: 32px;
+$button-height-large: 40px;
+
+// Spacing system
 $spacing-xs: 4px;
 $spacing-sm: 8px;
 $spacing-md: 16px;
@@ -156,211 +167,345 @@ $spacing-lg: 24px;
 $spacing-xl: 32px;
 ```
 
-## Troubleshooting Guide
+### 4. Development Workflow
 
-### Issue 1: Asset Macro Not Found
+**Command**: `start-development [mode]`
 
-**Error**: `use of undeclared crate or module 'manganis'`
+**Development Modes**:
+- `hot-reload`: Hot reload enabled development
+- `production`: Production build with optimization
+- `testing`: Testing environment setup
 
-**Solution**:
-```toml
-# Add to Cargo.toml
-[dependencies]
-manganis = { version = "0.7.9", features = ["dioxus"] }
-```
-
-### Issue 2: SCSS File Not Found
-
-**Error**: Asset resolution fails
-
-**Solution**:
-1. Verify file path is relative to project root
-2. Check file exists at specified location
-3. Ensure SCSS file is in assets directory
-
-### Issue 3: Styles Not Applying
-
-**Issue**: CSS not loading in browser
-
-**Solution**:
-1. Check asset! macro is properly used
-2. Verify manganis feature is enabled
-3. Run `cargo clean && cargo run`
-
-### Issue 4: Build Errors
-
-**Issue**: Compilation failures
-
-**Solution**:
-1. Run `cargo check` for detailed errors
-2. Check Dioxus version compatibility
-3. Update dependencies if needed
-
-## Modern DX Principles
-
-### Zero Configuration
-- Works out of the box
-- No build tool setup required
-- Automatic SCSS compilation
-
-### Developer Experience
-- Hot reload support
-- Type-safe asset handling
-- Compile-time error checking
-- Progressive enhancement
-
-### Performance
-- Automatic CSS minification
-- Tree-shaking support
-- Efficient asset bundling
-- Smart caching strategies
-
-## Claude Code Integration Patterns
-
-### AI-Assisted Project Setup
-
-```
-# Full project scaffolding with AI
-new_dioxus_project("my-app") {
-  framework: "dioxus@0.7",
-  ui_library: "element-plug",
-  features: ["web", "scss", "hot-reload"],
-  components: ["button", "input", "layout"]
-}
-```
-
-### Smart Component Generation
-
-```
-# Context-aware component creation
-generate_ui_component(type: "Button", props: {
-  variant: "primary",
-  size: "large",
-  disabled: false,
-  loading: false
-})
-
-# Intelligent layout generation
-create_responsive_layout(config: {
-  grid: 24,
-  breakpoints: ["xs", "sm", "md", "lg", "xl"],
-  container: true
-})
-```
-
-### Zero-Config Setup
-
-1. Run `setup_element_ui_project()` - Automatic dependency management
-2. Use `configure_scss_compilation()` - SCSS setup with hot reload
-3. Execute `generate_theme_config()` - Theme system initialization
-4. Start development with `run_dev_server()`
-
-### Production Deployment
-
+**Development Commands**:
 ```bash
+# Start development server with hot reload
+cargo run --features hot-reload
+
 # Build for production
 cargo build --release
 
-# Optimize assets
-cargo build --release --features optimize
+# Run tests
+cargo test
+
+# Check code formatting
+cargo fmt --check
+
+# Lint code
+cargo clippy
+```
+
+### 5. Performance Optimization
+
+**Command**: `optimize-performance [target]`
+
+**Optimization Strategies**:
+
+**Bundle Size Optimization**:
+```rust
+// Use selective imports
+static COMPONENT_STYLES: Asset = asset!("/assets/components/button.scss");
+// Instead of importing entire theme
+
+// Implement lazy loading
+#[component]
+fn LazyComponent() -> Element {
+    use_future(|| async { load_component_data().await });
+    rsx! {
+        "Loading..."
+    }
+}
+```
+
+**Memory Optimization**:
+```rust
+// Use memoization
+#[component]
+fn MemoizedComponent(memo: String) -> Element {
+    let expensive_computation = use_memo(|| {
+        // Expensive operation
+        compute_expensive_value()
+    });
+    
+    rsx! {
+        div {
+            "Result: {expensive_computation}"
+        }
+    }
+}
+```
+
+### 6. Testing & Quality Assurance
+
+**Command**: `run-tests [test-type]`
+
+**Testing Approaches**:
+```rust
+#[cfg(test)]
+mod tests {
+    use super::*;
+    
+    #[test]
+    fn test_button_creation() {
+        let button = create_primary_button();
+        assert!(button.is_some());
+    }
+    
+    #[test]
+    fn test_input_validation() {
+        let input = Input {
+            input_type: InputType::Email,
+            value: "test@example.com".to_string(),
+        };
+        assert!(input.is_valid());
+    }
+}
+```
+
+**Integration Testing**:
+```rust
+#[test]
+fn test_complete_page_flow() {
+    let page = create_complete_page();
+    
+    // Test navigation
+    simulate_click(&page, "nav-button");
+    
+    // Test form submission
+    simulate_form_submit(&page, "contact-form");
+    
+    // Verify expected behavior
+    assert!(page.contains_text("Success!"));
+}
+```
+
+## Problem Solving Framework
+
+### Issue Diagnosis
+When you encounter problems, follow this diagnostic process:
+
+1. **Identify the Problem Category**:
+   - Build errors
+   - Runtime issues
+   - Styling problems
+   - Performance issues
+
+2. **Gather Information**:
+   - Error messages
+   - Code snippets
+   - Environment details
+   - Reproduction steps
+
+3. **Apply Solutions**:
+   - Provide code fixes
+   - Configuration adjustments
+   - Best practices recommendations
+
+### Common Issues & Solutions
+
+**Issue 1: Compilation Errors**
+```bash
+# Error: cannot find derive macro `Props`
+# Solution:
+use dioxus::prelude::*;
+#[derive(Props)]
+struct MyComponentProps {
+    title: String,
+}
+```
+
+**Issue 2: SCSS Not Loading**
+```rust
+// Problem: Styles not applying
+// Solution:
+static STYLES: Asset = asset!("/assets/styles.scss"); // Ensure asset! macro is used
+```
+
+**Issue 3: Component Not Rendering**
+```rust
+// Problem: Empty component
+// Solution: Ensure return type is Element and use rsx!
+fn MyComponent() -> Element {
+    rsx! {
+        div {
+            "Hello World"
+        }
+    }
+}
+```
+
+## Integration Patterns
+
+### New Project Integration
+```bash
+# 1. Create project
+cargo new my-dioxus-app --lib
+cd my-dioxus-app
+
+# 2. Add dependencies
+cargo add dioxus@0.7 --features web
+cargo add dioxus-element-plug
+cargo add manganis@0.7.9 --features dioxus
+
+# 3. Configure assets directory
+mkdir -p assets/scss/components
+mkdir -p assets/scss/variables
+
+# 4. Start development
+cargo run
+```
+
+### Existing Project Integration
+```rust
+// 1. Add to existing Cargo.toml
+[dependencies]
+dioxus-element-plug = "0.1.0"
+manganis = { version = "0.7.9", features = ["dioxus"] }
+
+// 2. Import in lib.rs
+mod components;
+pub use components::*;
+
+// 3. Configure main.rs
+use dioxus_element_plug::prelude::*;
+static THEME: Asset = asset!("/scss/theme-chalk.scss");
 ```
 
 ## Best Practices
 
 ### Code Organization
+- Organize components by feature
 - Use meaningful component names
-- Follow Dioxus hook patterns
 - Implement proper error handling
-- Write component tests
+- Follow Rust naming conventions
+- Write comprehensive tests
 
 ### Styling Guidelines
-- Leverage theme variables
-- Use CSS custom properties
+- Leverage CSS custom properties
+- Use theme variables consistently
 - Follow BEM naming conventions
-- Implement responsive design
+- Implement responsive design patterns
+- Optimize CSS for production
 
 ### Performance Tips
-- Import only needed components
-- Use selective SCSS imports
-- Implement lazy loading
-- Optimize bundle size
+- Use `use_memo` for expensive computations
+- Implement lazy loading for large components
+- Minimize bundle size with selective imports
+- Use CSS containment when possible
+- Profile and optimize critical rendering paths
 
 ## Learning Resources
 
 ### Documentation
-- [Dioxus Official Docs](https://dioxuslabs.com/docs/)
+- [Dioxus Official Guide](https://dioxuslabs.com/guide/)
 - [Element UI Documentation](https://element.eleme.io/)
 - [Manganis GitHub](https://github.com/DioxusLabs/manganis)
-- [crates.io Package](https://crates.io/crates/dioxus-element-plug)
+- [Rust Async Book](https://rust-lang.github.io/async-book/)
 
-### Claude Code Examples
+### Tutorials & Examples
+- Component creation tutorials
+- Theming and customization examples
+- Performance optimization guides
+- Integration with popular libraries
 
-#### Component Generation
+### Community Resources
+- Dioxus Discord community
+- Rust programming forums
+- GitHub discussions
+- Stack Overflow tags
+
+## Skill Commands Reference
+
+### Basic Commands
+- `help` - Show available commands
+- `version` - Show skill version
+- `status` - Show system status
+
+### Project Commands
+- `setup-project <name>` - Initialize new project
+- `add-component <type>` - Add new component
+- `configure-theme <theme>` - Set up theming
+- `generate-docs` - Generate documentation
+
+### Development Commands
+- `start-development` - Start dev server
+- `run-tests` - Execute test suite
+- `build-production` - Create production build
+- `optimize-bundle` - Optimize bundle size
+
+### Support Commands
+- `troubleshoot <issue>` - Help with problems
+- `show-examples <topic>` - Display code examples
+- `check-updates` - Check for updates
+- `get-help <topic>` - Get detailed help
+
+## Agent Instructions
+
+When this skill is activated, follow these guidelines:
+
+1. **Always provide complete, copy-paste ready code**
+2. **Explain the reasoning behind your solutions**
+3. **Offer multiple approaches when relevant**
+4. **Reference official documentation**
+5. **Emphasize zero-config DX principles**
+6. **Include performance considerations**
+7. **Provide security best practices**
+8. **Consider edge cases and error handling**
+
+### Response Format
+
+For code solutions:
+```markdown
+## Solution
+
+**Description**: Brief explanation of what this code does
+
 ```rust
-// Generate a primary button component
-create_button("Submit", ButtonVariant::Primary)
-
-// Generate an input with validation
-create_input("email", InputType::Email, "user@example.com")
-
-// Generate a responsive layout
-create_layout("dashboard", LayoutType::Grid)
+// Complete, ready-to-use code here
+fn example() {
+    // Implementation
+}
 ```
 
-#### Theming Commands
-```
-apply_element_theme("dark")
-configure_scss_variables("#1e1e1e", "#409eff")
-optimize_for_production()
+**Usage**: How to use this code in practice
+
+**Customization**: How to modify for different needs
+
+**Performance**: Performance considerations
+
+**Testing**: How to test this implementation
 ```
 
-#### Asset Management
-```
-import_scss "theme-chalk.scss"
-compile_assets "dist/"
-watch_scss_changes "src/styles/"
-```
+### Priority Actions
 
-#### Layout Patterns
-```
-create_responsive_grid(24)
-setup_breakpoints("xs", "sm", "md", "lg", "xl")
-implement_flex_layout("center", "space-between")
-```
+1. **First Priority**: Address immediate user needs and problems
+2. **Second Priority**: Provide educational context and best practices
+3. **Third Priority**: Suggest optimizations and improvements
+4. **Fourth Priority**: Share related resources for further learning
 
-## Future Development
+### Skill Boundaries
 
-### Roadmap
-- Additional Element UI components
-- Enhanced theming system
-- Animation utilities
-- Accessibility improvements
-- Performance monitoring tools
+This skill is specifically focused on:
+- ✅ Dioxus 0.7+ web development
+- ✅ Element UI component usage
+- ✅ SCSS compilation with manganis
+- ✅ Modern Rust web development practices
+- ✅ Developer experience optimization
 
-### Contributing
-- Component development guidelines
-- Testing requirements
-- Documentation standards
-- Code review process
+This skill does not cover:
+- ❌ Other web frameworks (React, Vue, etc.)
+- ❌ Backend development (unless related to Dioxus)
+- ❌ Desktop application development
+- ❌ Mobile development outside Dioxus ecosystem
 
 ---
 
-**This Claude Code skill provides AI-powered Dioxus Element Plug development assistance, enabling zero-configuration UI development with intelligent component generation and automated SCSS compilation.**
+**Ready to assist with your Dioxus Element Plug development!**
 
-## Claude Code Usage
+To activate this skill in CatPaw AI:
+```bash
+# If skills CLI is available
+npx skills activate dioxus-element-plug
 
+# Or use the skill directly in your conversation
+@dioxus-element-plug setup-project my-app
 ```
-# Ask Claude to create UI components
-create a responsive dashboard with Element UI
-
-# Generate theme configurations  
-setup dark theme for Dioxus app
-
-# Resolve styling issues
-fix SCSS compilation errors
-
-# Optimize for production
-minify CSS and bundle assets
-```
-
-*Optimized for Claude Code • AI-first Dioxus Development*

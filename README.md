@@ -53,6 +53,16 @@
 - Dioxus: [dioxuslabs/dioxus](https://github.com/dioxuslabs/dioxus)
 - 技能仓库: [dioxus-element-plug-skills](https://github.com/pauljohn21/dioxus-element-plug-skills)
 
+## 目录位置
+
+```
+/Users/pauljohn/rust/dioxus-element-plug-skills/
+├── skills.sh          # AI技能配置文件
+├── README.md          # 项目说明文档
+├── PUSH_TO_GITHUB.md  # 推送指南
+└── GITHUB_SETUP.md    # 仓库设置指南
+```
+
 ## 版本
 
 v0.1.0

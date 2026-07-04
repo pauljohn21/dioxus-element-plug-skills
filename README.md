@@ -1,10 +1,10 @@
-# CatPaw AI Skills Configuration
+# Dioxus Element Plug Skills
 
-这是一个用于 CatPaw AI 助手功能的技能配置文件项目。
+这是一个专为 Dioxus Element Plug 项目设计的 CatPaw AI 技能配置文件项目。
 
 ## 项目概述
 
-本项目包含 `skills.sh` 配置文件，用于为 CatPaw AI 助手提供专业的技能支持，专注于：
+本项目包含 `skills.sh` 配置文件，为 CatPaw AI 助手提供专业的 Dioxus Element Plug 项目技能支持，专注于：
 
 - 🚀 Modern Dioxus 0.7+ UI 开发
 - 🎨 Element UI 设计系统实现
@@ -48,9 +48,10 @@
 
 ## 相关项目
 
-- 原始项目: [dioxus-element-plug](https://github.com/pauljohn21/dioxus-element-plug)
+- 主项目: [dioxus-element-plug](https://github.com/pauljohn21/dioxus-element-plug)
 - crates.io: [dioxus-element-plug](https://crates.io/crates/dioxus-element-plug)
 - Dioxus: [dioxuslabs/dioxus](https://github.com/dioxuslabs/dioxus)
+- 技能仓库: [dioxus-element-plug-skills](https://github.com/pauljohn21/dioxus-element-plug-skills)
 
 ## 版本
 
@@ -58,4 +59,4 @@ v0.1.0
 
 ---
 
-**注意**: 此项目专注于 AI 技能配置，不包含实际的 Dioxus UI 组件实现。
+**注意**: `dioxus-element-plug-skills` 专注于 AI 技能配置，不包含实际的 Dioxus UI 组件实现。主项目请参见 [dioxus-element-plug](https://github.com/pauljohn21/dioxus-element-plug)。

@@ -28,9 +28,8 @@
 
 ## 使用方法
 
-1. 将此项目克隆到本地
-2. 将 `skills.sh` 文件复制到 CatPaw 的 AI 技能目录
-3. 重启 CatPaw 以加载新技能
+npx skills add https://github.com/pauljohn21/dioxus-element-plug-skills
+
 
 ## 配置内容
 

@@ -1,18 +1,13 @@
-# Dioxus Element Plug Skill
+# Dioxus Element Plug
+
+A Claude Code skill for Dioxus UI development with Element UI theme-chalk styling and zero-config SCSS support.
 
 name: dioxus-element-plug
 version: 0.1.0
 description: Modern Dioxus UI components with Element UI theme-chalk styling and built-in SCSS support
-
-
-## Skill Metadata
-
-- **Name**: dioxus-element-plug
-- **Version**: 0.1.0
-- **Category**: AI Skill Configuration
-- **Framework**: Dioxus 0.7+
-- **Design System**: Element UI theme-chalk
-- **Key Feature**: Built-in SCSS compilation with manganis
+category: UI Development
+tags: dioxus, rust, ui-components, element-ui, scss, manganis
+framework: dioxus@0.7+
 
 ## Core Capabilities
 
@@ -41,7 +36,24 @@ description: Modern Dioxus UI components with Element UI theme-chalk styling and
 
 ## Quick Start Guide
 
-### Installation
+### Claude Code Integration
+
+#### Quick Commands
+```
+# Initialize new Dioxus project with Element UI
+new_dioxus_app("my-app", "element-ui")
+
+# Add Element UI components to existing project
+add_element_components("button", "input", "layout")
+
+# Configure SCSS compilation
+setup_scss_compilation("theme-chalk.scss")
+
+# Generate component with specific props
+generate_component("Button", "primary", "disabled=false")
+```
+
+#### Installation
 
 ```toml
 dioxus = { version = "0.7", features = ["web"] }
@@ -203,27 +215,45 @@ manganis = { version = "0.7.9", features = ["dioxus"] }
 - Efficient asset bundling
 - Smart caching strategies
 
-## Integration Patterns
+## Claude Code Integration Patterns
 
-### New Project Setup
+### AI-Assisted Project Setup
 
-```bash
-# Create new Dioxus project
-cargo new my-app --lib
-cd my-app
-
-# Add dependencies
-cargo add dioxus@0.7 --features web
-cargo add dioxus-element-plug
-cargo add manganis@0.7.9 --features dioxus
+```
+# Full project scaffolding with AI
+new_dioxus_project("my-app") {
+  framework: "dioxus@0.7",
+  ui_library: "element-plug",
+  features: ["web", "scss", "hot-reload"],
+  components: ["button", "input", "layout"]
+}
 ```
 
-### Existing Project Integration
+### Smart Component Generation
 
-1. Add dependencies to Cargo.toml
-2. Import and use components
-3. Configure SCSS assets
-4. Start development server
+```
+# Context-aware component creation
+generate_ui_component(type: "Button", props: {
+  variant: "primary",
+  size: "large",
+  disabled: false,
+  loading: false
+})
+
+# Intelligent layout generation
+create_responsive_layout(config: {
+  grid: 24,
+  breakpoints: ["xs", "sm", "md", "lg", "xl"],
+  container: true
+})
+```
+
+### Zero-Config Setup
+
+1. Run `setup_element_ui_project()` - Automatic dependency management
+2. Use `configure_scss_compilation()` - SCSS setup with hot reload
+3. Execute `generate_theme_config()` - Theme system initialization
+4. Start development with `run_dev_server()`
 
 ### Production Deployment
 
@@ -263,11 +293,40 @@ cargo build --release --features optimize
 - [Manganis GitHub](https://github.com/DioxusLabs/manganis)
 - [crates.io Package](https://crates.io/crates/dioxus-element-plug)
 
-### Examples
-- Basic component usage
-- Theming and customization
-- Asset management
-- Layout systems
+### Claude Code Examples
+
+#### Component Generation
+```rust
+// Generate a primary button component
+create_button("Submit", ButtonVariant::Primary)
+
+// Generate an input with validation
+create_input("email", InputType::Email, "user@example.com")
+
+// Generate a responsive layout
+create_layout("dashboard", LayoutType::Grid)
+```
+
+#### Theming Commands
+```
+apply_element_theme("dark")
+configure_scss_variables("#1e1e1e", "#409eff")
+optimize_for_production()
+```
+
+#### Asset Management
+```
+import_scss "theme-chalk.scss"
+compile_assets "dist/"
+watch_scss_changes "src/styles/"
+```
+
+#### Layout Patterns
+```
+create_responsive_grid(24)
+setup_breakpoints("xs", "sm", "md", "lg", "xl")
+implement_flex_layout("center", "space-between")
+```
 
 ## Future Development
 
@@ -286,4 +345,22 @@ cargo build --release --features optimize
 
 ---
 
-**This skill provides comprehensive support for Dioxus Element Plug development, focusing on modern DX principles and zero-config SCSS integration.**
+**This Claude Code skill provides AI-powered Dioxus Element Plug development assistance, enabling zero-configuration UI development with intelligent component generation and automated SCSS compilation.**
+
+## Claude Code Usage
+
+```
+# Ask Claude to create UI components
+create a responsive dashboard with Element UI
+
+# Generate theme configurations  
+setup dark theme for Dioxus app
+
+# Resolve styling issues
+fix SCSS compilation errors
+
+# Optimize for production
+minify CSS and bundle assets
+```
+
+*Optimized for Claude Code • AI-first Dioxus Development*

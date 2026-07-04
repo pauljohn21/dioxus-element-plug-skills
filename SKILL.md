@@ -1,6 +1,6 @@
 # Dioxus Element Plug
 
-A Claude Code skill for Dioxus UI development with Element UI theme-chalk styling and zero-config SCSS support.
+This is a skill for Dioxus UI development with Element UI styling and zero-config SCSS support.
 
 name: dioxus-element-plug
 version: 0.1.0

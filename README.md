@@ -4,7 +4,7 @@
 
 ## 项目概述
 
-本项目包含 `skills.sh` 配置文件，为 CatPaw AI 助手提供专业的 Dioxus Element Plug 项目技能支持，专注于：
+本项目包含 `SKILL.md` 配置文件，为 CatPaw AI 助手提供专业的 Dioxus Element Plug 项目技能支持，专注于：
 
 - 🚀 Modern Dioxus 0.7+ UI 开发
 - 🎨 Element UI 设计系统实现
@@ -57,10 +57,9 @@
 
 ```
 /Users/pauljohn/rust/dioxus-element-plug-skills/
-├── skills.sh          # AI技能配置文件
+├── SKILL.md           # AI技能配置文件
 ├── README.md          # 项目说明文档
-├── PUSH_TO_GITHUB.md  # 推送指南
-└── GITHUB_SETUP.md    # 仓库设置指南
+└── LICENSE            # 许可证文件
 ```
 
 ## 版本

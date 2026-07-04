@@ -28,7 +28,7 @@
 
 ## 使用方法
 
-npx skills add https://github.com/pauljohn21/dioxus-element-plug-skills
+- npx skills add https://github.com/pauljohn21/dioxus-element-plug-skills
 
 
 ## 配置内容
